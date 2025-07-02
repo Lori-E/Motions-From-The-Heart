@@ -1,0 +1,39 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffe6f0; /* soft pink */
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  background-color: #ff99c8; /* medium pink */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #550033;
+  font-weight: bold;
+  margin: 0 8px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.8em;
+  color: #aa5577;
+}
