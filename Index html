@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Motions of the Heart</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Motions of the Heart</h1>
+    <p class="quote">There are no better gifts to be given than gifts from the heart</p>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="order.html">Order Form</a> |
+      <a href="samples.html">Samples/Preview</a> |
+      <a href="login.html">Customer Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="welcome">
+      <h2>Welcome</h2>
+      <p>Personalized gifts crafted with love and care just for you.</p>
+      <p>Explore our unique offerings and find the perfect gift from the heart.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Motions of the Heart</p>
+  </footer>
+</body>
+</html>
