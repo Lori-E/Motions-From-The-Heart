@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Form - Inspirations From the Heart</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Inspirations From the Heart</h1>
+    <p class="quote">There are no better gifts to be given than gifts from the heart</p>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="order.html">Order Form</a> |
+      <a href="samples.html">Samples/Preview</a> |
+      <a href="login.html">Customer Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Order Form</h2>
+      <p>Coming soon: an easy-to-use order form where you can customize your gift selections.</p>
+      <p>If you’d like to place an order now, please contact us directly.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Inspirations From the Heart</p>
+  </footer>
+</body>
+</html>
