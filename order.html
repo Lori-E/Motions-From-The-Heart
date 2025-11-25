@@ -27,11 +27,19 @@
     box, but the more details you share, the more personal your piece will be.
   </p>
 
-  <h3>Pricing</h3>
+  <h3>Poem Pricing</h3>
   <ul>
     <li><strong>Digital personalized poem (email delivery):</strong> $19.99</li>
     <li><strong>Burned-edge framed poem (plus shipping):</strong> $32.99 + shipping</li>
-    <li><strong>Optional voice recording add-on:</strong> +$9.99</li>
+    <li><strong>Bundle – digital + framed poem:</strong> $42.99</li>
+    <li><strong>Bundle – digital + framed poem + audio clip:</strong> $49.99</li>
+  </ul>
+
+  <h3>Song Pricing</h3>
+  <ul>
+    <li><strong>Custom song – audio file by email or Facebook Messenger:</strong> $39.99</li>
+    <li><strong>Custom song – audio file + burned CD mailed to you:</strong> $49.99</li>
+    <li><strong>Custom song – audio file + burned CD + release on 28 streaming platforms under Lori E.:</strong> $59.99</li>
   </ul>
 
   <p><em>
@@ -39,7 +47,7 @@
     Rush options may be available for an additional fee.
   </em></p>
 
-  <!-- Simple mailto form for now -->
+  <!-- Step 1: send order details to your email -->
   <form
     action="mailto:memoriesgiftedfromtheheart@gmail.com"
     method="POST"
@@ -60,6 +68,30 @@
     <p><label>
       Best Phone (optional)<br>
       <input type="text" name="Phone">
+    </label></p>
+
+    <h3>What Are You Ordering?</h3>
+
+    <p><label>
+      Is this a poem, a song, or both?<br>
+      <select name="Type">
+        <option>Poem</option>
+        <option>Song</option>
+        <option>Both poem and song</option>
+      </select>
+    </label></p>
+
+    <p><label>
+      Product choice<br>
+      <select name="Product choice" id="product-choice">
+        <option>Digital poem (email) – $19.99</option>
+        <option>Burned-edge framed poem – $32.99 + shipping</option>
+        <option>Bundle: digital + framed poem – $42.99</option>
+        <option>Bundle: digital + framed poem + audio clip – $49.99</option>
+        <option>Custom song – audio by email/Messenger – $39.99</option>
+        <option>Custom song – audio + burned CD mailed – $49.99</option>
+        <option>Custom song – audio + CD + streaming release – $59.99</option>
+      </select>
     </label></p>
 
     <h3>About the Person or Event</h3>
@@ -106,7 +138,7 @@
         placeholder="List any nicknames, pet names, or inside jokes I should include."></textarea>
     </label></p>
 
-    <h3>Style & Product Choices</h3>
+    <h3>Tone & Style</h3>
 
     <p><label>
       Tone & style<br>
@@ -119,27 +151,21 @@
       </select>
     </label></p>
 
+    <h3>Delivery Details</h3>
+
     <p><label>
-      Product choice<br>
-      <select name="Product choice">
-        <option>Digital poem (email) – $19.99</option>
-        <option>Burned-edge framed poem – $32.99 + shipping</option>
-        <option>Digital poem + voice recording – $29.98</option>
-        <option>Framed poem + voice recording – $42.98 + shipping</option>
-      </select>
+      Mailing address (if ordering a frame or CD)<br>
+      <textarea name="Mailing address"
+        placeholder="Name, street address, city, state, ZIP."></textarea>
     </label></p>
 
     <p><label>
-      Frame color (if framed option)<br>
-      <select name="Frame color">
-        <option>Not framed / not sure yet</option>
-        <option>White</option>
-        <option>Oak</option>
-        <option>Cherry</option>
-        <option>Gold</option>
-        <option>Vintage (metal)</option>
-      </select>
+      For song orders – preferred delivery for audio<br>
+      <textarea name="Preferred delivery for song audio"
+        placeholder="Example: Email only, Facebook Messenger (include your profile name), or both."></textarea>
     </label></p>
+
+    <h3>Extra Details</h3>
 
     <p><label>
       Important names, dates & details<br>
@@ -160,20 +186,69 @@
     </label></p>
 
     <p>
-      <button class="main-button" type="submit">Send Order Details</button>
+      <button class="secondary-button" type="submit">
+        Send Order Details (then complete payment below)
+      </button>
     </p>
 
     <p><em>
-      After you submit this form, I will reach out by email to confirm details,
-      total cost (including shipping if framed), and payment options.
+      Step 1: Send your order details with the button above.<br>
+      Step 2: Complete your payment using PayPal below.
     </em></p>
   </form>
+
+  <h3>Step 2: Complete Payment</h3>
+  <p>
+    After you send your order details, choose your product in the dropdown above
+    and use the PayPal button below to complete payment securely.
+  </p>
+
+  <!-- PayPal button container -->
+  <div id="paypal-button-container"></div>
 
 </section>
 
 <footer>
   <p>© 2025 Motions of the Heart · Created with love by Lori E.</p>
 </footer>
+
+<!-- PayPal Smart Buttons script -->
+<!-- IMPORTANT: Replace YOUR_CLIENT_ID_HERE with your actual PayPal client ID -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID_HERE&currency=USD"></script>
+<script>
+  // Map dropdown choices to prices
+  const priceMap = {
+    "Digital poem (email) – $19.99": 19.99,
+    "Burned-edge framed poem – $32.99 + shipping": 32.99,
+    "Bundle: digital + framed poem – $42.99": 42.99,
+    "Bundle: digital + framed poem + audio clip – $49.99": 49.99,
+    "Custom song – audio by email/Messenger – $39.99": 39.99,
+    "Custom song – audio + burned CD mailed – $49.99": 49.99,
+    "Custom song – audio + CD + streaming release – $59.99": 59.99
+  };
+
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      const select = document.getElementById('product-choice');
+      const choice = select ? select.value : "Digital poem (email) – $19.99";
+      const amount = priceMap[choice] || 19.99;
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: amount.toFixed(2)
+          },
+          description: choice
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Payment completed by ' + details.payer.name.given_name + '. Thank you so much!');
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
 
 </body>
 </html>
