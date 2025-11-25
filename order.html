@@ -1,34 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Order Form - Inspirations From the Heart</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form – Motions of the Heart</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Inspirations From the Heart</h1>
-    <p class="quote">There are no better gifts to be given than gifts from the heart</p>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a> |
-      <a href="order.html">Order Form</a> |
-      <a href="samples.html">Samples/Preview</a> |
-      <a href="login.html">Customer Login</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h2>Order Form</h2>
-      <p>Coming soon: an easy-to-use order form where you can customize your gift selections.</p>
-      <p>If you’d like to place an order now, please contact us directly.</p>
-    </section>
-  </main>
+<header>
+  <h1>Motions of the Heart</h1>
+  <p class="tagline">Custom poems and songs created from your story.</p>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="order.html">Order Form</a> |
+    <a href="samples.html">Samples/Preview</a> |
+    <a href="login.html">Customer Login</a>
+  </nav>
+</header>
 
-  <footer>
-    <p>&copy; 2025 Inspirations From the Heart</p>
-  </footer>
+<section>
+  <h2>Order a Custom Piece</h2>
+  <p>
+    Please answer as many questions as you can. You don’t have to fill out every
+    box, but the more details you share, the more personal your piece will be.
+  </p>
+
+  <h3>Pricing</h3>
+  <ul>
+    <li><strong>Digital personalized poem (email delivery):</strong> $19.99</li>
+    <li><strong>Burned-edge framed poem (plus shipping):</strong> $32.99 + shipping</li>
+    <li><strong>Optional voice recording add-on:</strong> +$9.99</li>
+  </ul>
+
+  <p><em>
+    Normal turnaround: preview in 24–48 hours, final piece in 5–7 business days.
+    Rush options may be available for an additional fee.
+  </em></p>
+
+  <!-- Simple mailto form for now -->
+  <form
+    action="mailto:memoriesgiftedfromtheheart@gmail.com"
+    method="POST"
+    enctype="text/plain"
+  >
+    <h3>Your Contact Information</h3>
+
+    <p><label>
+      Your Name*<br>
+      <input type="text" name="Your Name" required>
+    </label></p>
+
+    <p><label>
+      Your Email*<br>
+      <input type="email" name="Your Email" required>
+    </label></p>
+
+    <p><label>
+      Best Phone (optional)<br>
+      <input type="text" name="Phone">
+    </label></p>
+
+    <h3>About the Person or Event</h3>
+
+    <p><label>
+      Who is this for, and what is the occasion?<br>
+      <textarea name="About the person or event"
+        placeholder="Example: My husband John – our 20th anniversary"></textarea>
+    </label></p>
+
+    <p><label>
+      Embarrassing or funny moment<br>
+      <textarea name="Funny or embarrassing moment"
+        placeholder="Share a funny or slightly embarrassing moment that still makes you smile."></textarea>
+    </label></p>
+
+    <p><label>
+      A memorable moment<br>
+      <textarea name="Memorable moment"
+        placeholder="Describe a moment with this person that you’ll never forget."></textarea>
+    </label></p>
+
+    <p><label>
+      A funny memory<br>
+      <textarea name="Funny memory"
+        placeholder="What story always makes you laugh when you think of them?"></textarea>
+    </label></p>
+
+    <p><label>
+      A regret or &quot;I wish&quot; moment<br>
+      <textarea name="Regret or I wish"
+        placeholder="Is there something you wish you had said, done, or been able to do for them?"></textarea>
+    </label></p>
+
+    <p><label>
+      What you admire about them<br>
+      <textarea name="What I admire"
+        placeholder="What do you admire most about this person?"></textarea>
+    </label></p>
+
+    <p><label>
+      Nicknames & inside jokes<br>
+      <textarea name="Nicknames and inside jokes"
+        placeholder="List any nicknames, pet names, or inside jokes I should include."></textarea>
+    </label></p>
+
+    <h3>Style & Product Choices</h3>
+
+    <p><label>
+      Tone & style<br>
+      <select name="Tone">
+        <option>Heartfelt</option>
+        <option>Funny</option>
+        <option>Romantic</option>
+        <option>Faith-based</option>
+        <option>A mix</option>
+      </select>
+    </label></p>
+
+    <p><label>
+      Product choice<br>
+      <select name="Product choice">
+        <option>Digital poem (email) – $19.99</option>
+        <option>Burned-edge framed poem – $32.99 + shipping</option>
+        <option>Digital poem + voice recording – $29.98</option>
+        <option>Framed poem + voice recording – $42.98 + shipping</option>
+      </select>
+    </label></p>
+
+    <p><label>
+      Frame color (if framed option)<br>
+      <select name="Frame color">
+        <option>Not framed / not sure yet</option>
+        <option>White</option>
+        <option>Oak</option>
+        <option>Cherry</option>
+        <option>Gold</option>
+        <option>Vintage (metal)</option>
+      </select>
+    </label></p>
+
+    <p><label>
+      Important names, dates & details<br>
+      <textarea name="Important names and dates"
+        placeholder="List any names, dates, locations, or phrases that MUST be in the piece."></textarea>
+    </label></p>
+
+    <p><label>
+      Deadline / event date<br>
+      <input type="text" name="Deadline"
+        placeholder="When do you need this by? Is there an event date?">
+    </label></p>
+
+    <p><label>
+      Anything else I should know?<br>
+      <textarea name="Anything else"
+        placeholder="Faith references, must-have lines, or any other instructions."></textarea>
+    </label></p>
+
+    <p>
+      <button class="main-button" type="submit">Send Order Details</button>
+    </p>
+
+    <p><em>
+      After you submit this form, I will reach out by email to confirm details,
+      total cost (including shipping if framed), and payment options.
+    </em></p>
+  </form>
+
+</section>
+
+<footer>
+  <p>© 2025 Motions of the Heart · Created with love by Lori E.</p>
+</footer>
+
 </body>
 </html>
