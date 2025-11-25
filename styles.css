@@ -17,5 +17,81 @@ header {
   padding: 20px;
   text-align: center;
   border-radius: 0 0 20px 20px;
-  box-shadow: 0px
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.15);
+}
 
+/* Main Title */
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #3a3a3a;
+  font-weight: bold;
+}
+
+/* Tagline */
+header .tagline {
+  font-style: italic;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #5a5a5a;
+}
+
+/* Navigation Links */
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #8b6f47; /* soft gold-brown */
+  margin: 0 8px;
+}
+
+nav a:hover {
+  color: #b98c4d; /* richer gold */
+}
+
+/* Section Text */
+section {
+  padding: 20px;
+}
+
+/* Buttons */
+.button-row {
+  margin-top: 20px;
+}
+
+.main-button, .secondary-button {
+  display: inline-block;
+  padding: 10px 18px;
+  margin-right: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+/* Main gold button */
+.main-button {
+  background-color: #b98c4d; /* warm gold */
+  color: white;
+}
+
+.main-button:hover {
+  background-color: #d1a96a;
+}
+
+/* Secondary outline button */
+.secondary-button {
+  border: 2px solid #b98c4d;
+  color: #b98c4d;
+}
+
+.secondary-button:hover {
+  background-color: #f7ead5;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  color: #6a6a6a;
+}
