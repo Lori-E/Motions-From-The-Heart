@@ -1,1 +1,152 @@
-b
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form – Motions of the Heart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Motions of the Heart</h1>
+  <p class="tagline">Custom poems and songs created from your story.</p>
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="order.html">Order Form</a> |
+    <a href="samples.html">Samples/Preview</a> |
+    <a href="login.html">Customer Login</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Order a Custom Piece</h2>
+  <p>Please answer as many questions as you can. The more details you share, the more personalized your piece will be.</p>
+
+  <h3>Poem Pricing</h3>
+  <ul>
+    <li>Digital personalized poem (email): <strong>$19.99</strong></li>
+    <li>Burned-edge framed poem: <strong>$32.99 + shipping</strong></li>
+    <li>Bundle: digital + framed poem: <strong>$42.99</strong></li>
+    <li>Bundle: digital + framed poem + audio clip: <strong>$49.99</strong></li>
+  </ul>
+
+  <h3>Song Pricing</h3>
+  <ul>
+    <li>Custom song – audio by email or Facebook Messenger: <strong>$39.99</strong></li>
+    <li>Custom song – audio + burned CD mailed: <strong>$49.99</strong></li>
+    <li>Custom song – audio + CD + release on 28 streaming platforms: <strong>$59.99</strong></li>
+  </ul>
+
+  <form action="mailto:memoriesgiftedfromtheheart@gmail.com" method="POST" enctype="text/plain">
+
+    <h3>Your Contact Information</h3>
+
+    <p><label>Your Name*<br><input type="text" name="Your Name" required></label></p>
+    <p><label>Your Email*<br><input type="email" name="Your Email" required></label></p>
+    <p><label>Phone (optional)<br><input type="text" name="Phone"></label></p>
+
+    <h3>What Are You Ordering?</h3>
+
+    <p><label>
+      Type<br>
+      <select name="Type">
+        <option>Poem</option>
+        <option>Song</option>
+        <option>Both poem and song</option>
+      </select>
+    </label></p>
+
+    <p><label>
+      Product choice<br>
+      <select name="Product choice" id="product-choice">
+        <option>Digital poem (email) – $19.99</option>
+        <option>Burned-edge framed poem – $32.99 + shipping</option>
+        <option>Bundle: digital + framed poem – $42.99</option>
+        <option>Bundle: digital + framed poem + audio clip – $49.99</option>
+        <option>Custom song – audio by email/Messenger – $39.99</option>
+        <option>Custom song – audio + burned CD mailed – $49.99</option>
+        <option>Custom song – audio + CD + streaming release – $59.99</option>
+      </select>
+    </label></p>
+
+    <h3>Details for Your Custom Piece</h3>
+
+    <p><label>Who is this for?<br><textarea name="About the person or event"></textarea></label></p>
+    <p><label>Memorable moment<br><textarea name="Memorable moment"></textarea></label></p>
+    <p><label>Funny memory<br><textarea name="Funny memory"></textarea></label></p>
+    <p><label>Embarrassing moment<br><textarea name="Embarrassing moment"></textarea></label></p>
+    <p><label>Regret or I wish<br><textarea name="Regret"></textarea></label></p>
+    <p><label>Admired qualities<br><textarea name="Admire"></textarea></label></p>
+    <p><label>Nicknames / inside jokes<br><textarea name="Nicknames"></textarea></label></p>
+
+    <h3>Delivery Details</h3>
+
+    <p><label>Mailing address (if framed poem or CD)<br>
+      <textarea name="Mailing address"></textarea>
+    </label></p>
+
+    <p><label>Preferred delivery for song audio<br>
+      <textarea name="Delivery preference" placeholder="Email, Messenger, both"></textarea>
+    </label></p>
+
+    <p><label>Deadline<br>
+      <input type="text" name="Deadline" placeholder="Event date or needed by">
+    </label></p>
+
+    <p><label>Anything else?<br>
+      <textarea name="Anything else"></textarea>
+    </label></p>
+
+    <p>
+      <button type="submit" class="secondary-button">Send Order Details</button>
+    </p>
+
+  </form>
+
+  <h3>Step 2: Complete Payment</h3>
+  <div id="paypal-button-container"></div>
+
+</section>
+
+<footer>
+  <p>© 2025 Motions of the Heart · Created with love by Lori E.</p>
+</footer>
+
+<!-- PayPal script with YOUR LIVE CLIENT ID -->
+<script src="https://www.paypal.com/sdk/js?client-id=AYxJ8KfXQ7c4btSaX63WPEAc593RqByKuwLC0kLkXC3fzyzlbpr3Q9-VT8NffGq-darCb-UmZTSN4V_B&currency=USD"></script>
+
+<script>
+  const priceMap = {
+    "Digital poem (email) – $19.99": 19.99,
+    "Burned-edge framed poem – $32.99 + shipping": 32.99,
+    "Bundle: digital + framed poem – $42.99": 42.99,
+    "Bundle: digital + framed poem + audio clip – $49.99": 49.99,
+    "Custom song – audio by email/Messenger – $39.99": 39.99,
+    "Custom song – audio + burned CD mailed – $49.99": 49.99,
+    "Custom song – audio + CD + streaming release – $59.99": 59.99
+  };
+
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      const choice = document.getElementById('product-choice').value;
+      const amount = priceMap[choice] || 19.99;
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: amount.toFixed(2) },
+          description: choice
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('Payment completed by ' + details.payer.name.given_name);
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+
+</body>
+</html
